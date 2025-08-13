@@ -1,0 +1,19 @@
+<div class="header-bar">
+  <h2>My Attendance History</h2>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Course</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of attendanceRecords">
+      <td>{{ record.date | date:'fullDate' }}</td>
+      <td>{{ record.timetable_entry.course.name }}</td>
+      <td [ngClass]="record.status">{{ record.status }}</td>
+    </tr>
+  </tbody>
+</table>

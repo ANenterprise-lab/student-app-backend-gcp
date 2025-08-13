@@ -1,0 +1,40 @@
+<div *ngIf="classDetail$ | async as schoolClass">
+  <div class="header-bar">
+    <h2>Class Dashboard: {{ schoolClass.name }} - Section {{ schoolClass.section }}</h2>
+  </div>
+
+  <div class="details-grid">
+    <div class="card">
+      <h3>Class Teacher</h3>
+      <p *ngIf="schoolClass.class_teacher">{{ schoolClass.class_teacher.username }}</p>
+      <p *ngIf="!schoolClass.class_teacher">Not Assigned</p>
+    </div>
+
+    <div class="card">
+      <h3>Assigned Courses</h3>
+      <ul *ngIf="schoolClass.courses.length > 0">
+        <li *ngFor="let course of schoolClass.courses">
+          {{ course.name }} ({{ course.subject.name }})
+        </li>
+      </ul>
+      <p *ngIf="schoolClass.courses.length === 0">No courses assigned.</p>
+    </div>
+  </div>
+
+  <div class="card student-list">
+    <h3>Enrolled Students ({{ schoolClass.students.length }})</h3>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Username</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of schoolClass.students">
+          <td>{{ student.id }}</td>
+          <td>{{ student.username }}</td>
+          <td>{{ student.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="schoolClass.students.length === 0">No students assigned to this class.</p>
+  </div>
+</div>

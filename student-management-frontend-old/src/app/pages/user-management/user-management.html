@@ -1,0 +1,27 @@
+<div class="header-bar">
+  <h2>User Role Management</h2>
+  <a routerLink="/users/create" class="create-button">Create New User</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Current Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <select [value]="user.role" (change)="onRoleChange($event, user)">
+          <option *ngFor="let role of roles" [value]="role">
+            {{ role }}
+          </option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>

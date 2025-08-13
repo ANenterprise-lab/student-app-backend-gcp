@@ -1,0 +1,11 @@
+<div class="header-bar">
+  <h2>My Daily Notes</h2>
+  <a routerLink="/notes/create" class="create-button">Create New Note</a>
+</div>
+<div class="card-container">
+  <div *ngFor="let note of notes" class="card">
+    <h3>{{ note.title }}</h3>
+    <p><strong>Date:</strong> {{ note.date | date:'mediumDate' }}</p>
+    <p>{{ note.content }}</p>
+  </div>
+</div>

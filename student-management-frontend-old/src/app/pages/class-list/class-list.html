@@ -1,0 +1,25 @@
+<div class="header-bar">
+  <h2>School Classes</h2>
+  <a routerLink="/classes/create" class="create-button">Create New Class</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class Name</th>
+      <th>Section</th>
+      <th>Class Teacher ID</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let schoolClass of classes">
+    <td>
+      <a [routerLink]="['/classes', schoolClass.id]">{{ schoolClass.name }}</a>
+    </td>
+    <td>{{ schoolClass.section }}</td>
+    <td>{{ schoolClass.class_teacher || 'N/A' }}</td>
+  </tr>
+</tbody>
+</table>
+
+<p *ngIf="classes.length === 0">No classes found.</p>

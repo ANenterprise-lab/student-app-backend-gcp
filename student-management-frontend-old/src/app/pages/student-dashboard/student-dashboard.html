@@ -1,0 +1,18 @@
+<div class="dashboard-grid" *ngIf="dashboardData">
+  <div class="card">
+    <h2>My Courses</h2>
+    <ul>
+      <li *ngFor="let course of dashboardData.courses">
+        {{ course.name }} ({{ course.subject.name }})
+      </li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Upcoming Assignments</h2>
+    <ul>
+      <li *ngFor="let assignment of dashboardData.assignments">
+        {{ assignment.title }} - <strong>Due: {{ assignment.due_date | date:'short' }}</strong>
+      </li>
+    </ul>
+  </div>
+</div>

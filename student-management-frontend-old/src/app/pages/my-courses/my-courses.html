@@ -1,0 +1,10 @@
+<div class="header-bar">
+  <h2>My Enrolled Courses</h2>
+</div>
+<div class="card-container">
+  <div *ngFor="let course of courses" class="card">
+    <h3>{{ course.name }} ({{ course.code }})</h3>
+    <p><strong>Subject:</strong> {{ course.subject.name }}</p>
+    <p>{{ course.description }}</p>
+  </div>
+</div>

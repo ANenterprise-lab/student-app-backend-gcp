@@ -1,0 +1,26 @@
+<div class="dashboard-grid">
+  <div class="card">
+    <h2>User Summary</h2>
+      <a routerLink="/user-management" class="manage-link">Manage Roles</a>
+    <ul *ngIf="users.length > 0; else noUsers">
+      <li *ngFor="let user of users">
+        {{ user.username }} - <strong>{{ user.role }}</strong>
+      </li>
+    </ul>
+    <ng-template #noUsers>
+      <p>No users found.</p>
+    </ng-template>
+  </div>
+
+  <div class="card">
+    <h2>Recent Assignments</h2>
+    <ul *ngIf="assignments.length > 0; else noAssignments">
+      <li *ngFor="let assignment of assignments">
+        {{ assignment.title }} (Due: {{ assignment.due_date | date: 'shortDate' }})
+      </li>
+    </ul>
+    <ng-template #noAssignments>
+      <p>No assignments found.</p>
+    </ng-template>
+  </div>
+</div>

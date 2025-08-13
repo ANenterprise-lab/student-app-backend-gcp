@@ -1,0 +1,10 @@
+<div class="header-bar">
+  <h2>My Daily Notes</h2>
+</div>
+<div class="card-container">
+  <div *ngFor="let note of notes" class="card">
+    <h3>{{ note.title }}</h3>
+    <p><strong>Date:</strong> {{ note.date | date:'fullDate' }}</p>
+    <p>{{ note.content }}</p>
+  </div>
+</div>

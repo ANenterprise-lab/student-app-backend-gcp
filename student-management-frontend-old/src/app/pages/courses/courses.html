@@ -1,0 +1,27 @@
+<div class="header-bar">
+  <h2>Course List</h2>
+  <a routerLink="/courses/create" class="create-button">Create New Course</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Credits</th>
+      <th>Actions</th> </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.code }}</td>
+      <td>{{ course.name }}</td>
+      <td>{{ course.credit_hours }}</td>
+      <td>
+        <a [routerLink]="['/courses/edit', course.id]" class="action-btn edit">Edit</a>
+        <button (click)="deleteCourse(course.id)" class="action-btn delete">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="courses.length === 0">No courses found.</p>

@@ -1,0 +1,9 @@
+<div class="header-bar">
+  <h2>All Subjects</h2>
+</div>
+<div class="card-container">
+  <div *ngFor="let subject of subjects" class="card">
+    <h3>{{ subject.name }} ({{ subject.code }})</h3>
+    <p>{{ subject.description }}</p>
+  </div>
+</div>

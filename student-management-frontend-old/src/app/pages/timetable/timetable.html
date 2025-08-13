@@ -1,0 +1,24 @@
+<div class="header-bar">
+  <h2>Weekly Timetable</h2>
+  <a routerLink="/timetable/create" class="create-button">Add New Entry</a>
+</div>
+<table *ngIf="timetables.length > 0">
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Day</th>
+      <th>Time</th>
+      <th>Room</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of timetables">
+      <td>{{ entry.course }}</td>
+      <td>{{ entry.day_of_week }}</td>
+      <td>{{ entry.start_time }} - {{ entry.end_time }}</td>
+      <td>{{ entry.room_number }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="timetables.length === 0">No timetable entries found.</p>

@@ -1,0 +1,25 @@
+<div class="form-container">
+  <form class="styled-form" [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+    <h2>Create New Invoice</h2>
+    <div class="form-group">
+      <label for="student">Select Student</label>
+      <select id="student" formControlName="student">
+        <option [ngValue]="null" disabled>-- Select --</option>
+        <option *ngFor="let student of students" [value]="student.id">{{ student.username }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="title">Title (e.g., September Tuition)</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input id="amount" type="number" formControlName="amount">
+    </div>
+    <div class="form-group">
+      <label for="due_date">Due Date</label>
+      <input id="due_date" type="date" formControlName="due_date">
+    </div>
+    <button type="submit" [disabled]="!invoiceForm.valid">Create Invoice</button>
+  </form>
+</div>

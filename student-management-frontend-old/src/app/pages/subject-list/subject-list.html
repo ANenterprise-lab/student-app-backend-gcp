@@ -1,0 +1,21 @@
+<div class="header-bar">
+  <h2>Manage Subjects</h2>
+  <a routerLink="/subjects/create" class="create-button">Create New Subject</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Completion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subject of subjects">
+      <td>{{ subject.code }}</td>
+      <td>{{ subject.name }}</td>
+      <td>{{ subject.completion_percentage }}%</td>
+    </tr>
+  </tbody>
+</table>

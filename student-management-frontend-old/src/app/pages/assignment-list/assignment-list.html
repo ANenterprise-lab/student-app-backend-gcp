@@ -1,0 +1,23 @@
+<div class="header-bar">
+  <h2>Assignments</h2>
+  <a routerLink="/assignments/create" class="create-button">Create New Assignment</a>
+</div>
+
+<table *ngIf="assignments.length > 0">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Course ID</th>
+      <th>Due Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assignment of assignments">
+      <td>{{ assignment.title }}</td>
+      <td>{{ assignment.course }}</td>
+      <td>{{ assignment.due_date | date: 'medium' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="assignments.length === 0">No assignments found.</p>

@@ -1,0 +1,27 @@
+<div class="form-container">
+  <form class="styled-form" [formGroup]="assignmentForm" (ngSubmit)="onSubmit()">
+    <h2>Create New Assignment</h2>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="course">Course</label>
+      <select id="course" formControlName="course">
+        <option [ngValue]="null" disabled>Select a course</option>
+        <option *ngFor="let course of courses" [ngValue]="course.id">
+          {{ course.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="due_date">Due Date</label>
+      <input id="due_date" type="datetime-local" formControlName="due_date">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" rows="4"></textarea>
+    </div>
+    <button type="submit" [disabled]="!assignmentForm.valid">Create Assignment</button>
+  </form>
+</div>

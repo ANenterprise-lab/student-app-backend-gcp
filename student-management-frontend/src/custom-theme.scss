@@ -1,0 +1,43 @@
+// src/custom-theme.scss
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define the color palettes for your theme
+$my-primary-palette: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,  // This is the main orange for buttons
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff, // White text on the main orange
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  )
+);
+
+// Create the theme object
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($my-primary-palette),
+    accent: mat.define-palette(mat.$grey-palette) // Using grey as an accent
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Apply the theme to your entire application
+@include mat.all-component-themes($my-theme);

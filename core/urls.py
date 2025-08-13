@@ -1,0 +1,60 @@
+from django.urls import path
+from .views import (
+    UserListCreateView,
+    UserDetailView,
+    CourseListCreateView,
+    CourseDetailView,
+    AssignmentListCreateView,
+    AttendanceListCreateView,
+    TimetableListCreateView,
+    ParentDashboardView,
+    MeView,
+    SchoolClassListCreateView, # Import the new view
+    SchoolClassDetailView, # Import the new view
+    SubjectListCreateView,
+    StudentDashboardView,
+    DailyNoteListCreateView,
+    PayrollListCreateView,
+    ServiceStatusView,
+    StudentAttendanceView,
+    TeacherDashboardView,
+    StudentCoursesView,
+    StudentAssignmentsView,
+    StudentNotesView,
+    QueryListCreateView,
+    AnnouncementListCreateView,
+    InvoiceListCreateView,
+    PaymentListCreateView, 
+    login_view,
+)
+
+urlpatterns = [
+    path('users/me/', MeView.as_view(), name='user-me'),
+    path('users/', UserListCreateView.as_view(), name='user-list'),
+    path('users/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
+    path('courses/', CourseListCreateView.as_view(), name='course-list'),
+    path('courses/<int:pk>/', CourseDetailView.as_view(), name='course-detail'),
+    path('assignments/', AssignmentListCreateView.as_view(), name='assignment-list'),
+    path('attendance/', AttendanceListCreateView.as_view(), name='attendance-list'),
+    path('timetable/', TimetableListCreateView.as_view(), name='timetable-list'),
+    path('parent-dashboard/', ParentDashboardView.as_view(), name='parent-dashboard'),
+    path('classes/', SchoolClassListCreateView.as_view(), name='class-list'), # Add the new path
+    path('classes/<int:pk>/', SchoolClassDetailView.as_view(), name='class-detail'),
+    # The old login view is no longer needed with token auth, but we can leave it for now
+    path('login/', login_view, name='login'),
+    path('subjects/', SubjectListCreateView.as_view(), name='subject-list'),
+    path('student-dashboard/', StudentDashboardView.as_view(), name='student-dashboard'),
+    path('payroll/', PayrollListCreateView.as_view(), name='payroll-list'),
+    path('service-status/', ServiceStatusView.as_view(), name='service-status'),
+    path('teacher-dashboard/', TeacherDashboardView.as_view(), name='teacher-dashboard'),
+    path('my-attendance/', StudentAttendanceView.as_view(), name='my-attendance'),
+    path('my-courses/', StudentCoursesView.as_view(), name='my-courses'),
+    path('my-assignments/', StudentAssignmentsView.as_view(), name='my-assignments'),
+    path('notes/', DailyNoteListCreateView.as_view(), name='note-list'),
+    path('my-notes/', StudentNotesView.as_view(), name='my-notes'),
+    path('queries/', QueryListCreateView.as_view(), name='query-list'),
+    path('announcements/', AnnouncementListCreateView.as_view(), name='announcement-list'),
+    path('invoices/', InvoiceListCreateView.as_view(), name='invoice-list'),
+    path('payments/', PaymentListCreateView.as_view(), name='payment-list'),
+    
+]

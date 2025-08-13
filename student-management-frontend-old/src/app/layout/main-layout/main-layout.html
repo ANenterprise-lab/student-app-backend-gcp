@@ -1,0 +1,50 @@
+<div class="main-container">
+  <header class="header">
+    <div class="logo">Student App</div>
+    <nav class="nav-links" *ngIf="isAuthenticated$ | async as isAuthenticated">
+
+      <ng-container *ngIf="isAuthenticated">
+        <ng-container *ngIf="currentUser$ | async as user">
+
+          <a *ngIf="user.role === 'ADMIN' || user.role === 'TEACHER'" routerLink="/dashboard">Dashboard</a>
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/student-dashboard">My Dashboard</a>
+          <a *ngIf="user.role === 'PARENT'" routerLink="/parent-dashboard">Parent Dashboard</a>
+          <a *ngIf="user.role === 'ADMIN'" routerLink="/subjects">Manage Subjects</a>
+          <a *ngIf="user.role === 'ADMIN'" routerLink="/invoices">Financials</a>
+          <a *ngIf="user.role === 'ADMIN' || user.role === 'TEACHER'" routerLink="/notes">Daily Notes</a>
+          <ng-container *ngIf="user.role === 'ADMIN' || user.role === 'TEACHER'">
+            <a routerLink="/user-management">Manage Users</a>
+            <a routerLink="/classes">Manage Classes</a>
+            <a routerLink="/courses">Courses</a>
+            <a routerLink="/timetable">Timetable</a>
+            <a routerLink="/assignments">Assignments</a>
+            <a routerLink="/attendance/mark">Mark Attendance</a>
+            <a routerLink="/payroll">HR/Payroll</a>
+          </ng-container>
+
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/my-courses">My Courses</a>
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/my-attendance">My Attendance</a>
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/my-assignments">My Assignments</a>
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/my-grades">My Grades</a>
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/my-subjects">Subjects</a>
+          <a *ngIf="user.role === 'STUDENT'" routerLink="/my-notes">My Notes</a>
+          <a href="#" (click)="logout()">Logout</a>
+
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="!isAuthenticated">
+        <a routerLink="/home">Home</a>
+        <a routerLink="/login">Login</a>
+      </ng-container>
+    </nav>
+  </header>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Student Management System</p>
+  </footer>
+</div>

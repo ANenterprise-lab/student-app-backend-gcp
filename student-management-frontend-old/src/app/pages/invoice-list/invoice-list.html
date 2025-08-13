@@ -1,0 +1,24 @@
+<div class="header-bar">
+  <h2>Invoices</h2>
+  <a routerLink="/invoices/create" class="create-button">Create New Invoice</a>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Due Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{ invoice.student }}</td>
+      <td>{{ invoice.title }}</td>
+      <td>{{ invoice.amount | currency:'USD' }}</td>
+      <td>{{ invoice.due_date | date:'mediumDate' }}</td>
+      <td>{{ invoice.status }}</td>
+    </tr>
+  </tbody>
+</table>

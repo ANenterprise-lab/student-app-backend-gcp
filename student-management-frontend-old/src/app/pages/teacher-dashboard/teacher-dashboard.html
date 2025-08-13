@@ -1,0 +1,8 @@
+<div class="header-bar">
+  <h2>Teacher Dashboard</h2>
+</div>
+
+<div *ngIf="dashboardData" class="card">
+  <h3>{{ dashboardData.message }}</h3>
+  <p>This is where teacher-specific information like assigned classes, student queries, and notifications will be displayed.</p>
+</div>

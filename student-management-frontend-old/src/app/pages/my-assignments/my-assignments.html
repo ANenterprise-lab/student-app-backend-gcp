@@ -1,0 +1,10 @@
+<div class="header-bar">
+  <h2>My Assignments</h2>
+</div>
+<div class="card-container">
+  <div *ngFor="let assignment of assignments" class="card">
+    <h3>{{ assignment.title }}</h3>
+    <p><strong>Due:</strong> {{ assignment.due_date | date:'full' }}</p>
+    <p>{{ assignment.description }}</p>
+  </div>
+</div>

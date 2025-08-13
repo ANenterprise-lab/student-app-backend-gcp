@@ -1,0 +1,22 @@
+<div class="form-container">
+  <form class="styled-form" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <h2>Create New Course</h2>
+    <div class="form-group">
+      <label for="name">Course Name</label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="code">Course Code</label>
+      <input id="code" type="text" formControlName="code">
+    </div>
+    <div class="form-group">
+      <label for="credit_hours">Credit Hours</label>
+      <input id="credit_hours" type="number" formControlName="credit_hours">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" rows="4"></textarea>
+    </div>
+    <button type="submit" [disabled]="!courseForm.valid">Create Course</button>
+  </form>
+</div>

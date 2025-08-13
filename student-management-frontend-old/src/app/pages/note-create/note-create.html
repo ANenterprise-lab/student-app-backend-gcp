@@ -1,0 +1,21 @@
+<div class="form-container">
+  <form class="styled-form" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <h2>Create a New Daily Note</h2>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="course">Select Course</label>
+      <select id="course" formControlName="course">
+        <option [ngValue]="null" disabled>-- Select --</option>
+        <option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="content">Note Content</label>
+      <textarea id="content" formControlName="content" rows="8"></textarea>
+    </div>
+    <button type="submit" [disabled]="!noteForm.valid">Save Note</button>
+  </form>
+</div>

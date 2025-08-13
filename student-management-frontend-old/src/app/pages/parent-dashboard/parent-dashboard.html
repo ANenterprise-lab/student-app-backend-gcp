@@ -1,0 +1,11 @@
+<div *ngIf="dashboardData">
+  <h2>{{ dashboardData.message }}</h2>
+  <div class="card">
+    <h3>Your Children</h3>
+    <ul>
+      <li *ngFor="let child of dashboardData.children">
+        {{ child.name }} - Grade {{ child.grade }}
+      </li>
+    </ul>
+  </div>
+</div>

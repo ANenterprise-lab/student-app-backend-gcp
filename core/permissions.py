@@ -1,0 +1,16 @@
+# In core/permissions.py
+from rest_framework.permissions import BasePermission
+
+class IsAdminUser(BasePermission):
+    """
+    Allows access only to admin users.
+    """
+    def has_permission(self, request, view):
+        return bool(request.user and request.user.is_authenticated and request.user.role == 'ADMIN')
+    
+class IsTeacherUser(BasePermission):
+    """
+    Allows access only to teacher users.
+    """
+    def has_permission(self, request, view):
+        return bool(request.user and request.user.is_authenticated and request.user.role == 'TEACHER')

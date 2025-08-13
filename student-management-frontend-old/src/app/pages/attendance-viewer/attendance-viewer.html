@@ -1,0 +1,21 @@
+<div class="header-bar">
+  <h2>Attendance Records</h2>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Course</th>
+      <th>Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of attendanceRecords">
+      <td>{{ record.student.username }}</td>
+      <td>{{ record.timetable_entry.course.name }}</td>
+      <td>{{ record.date | date:'mediumDate' }}</td>
+      <td>{{ record.status }}</td>
+    </tr>
+  </tbody>
+</table>

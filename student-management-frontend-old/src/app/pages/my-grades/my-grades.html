@@ -1,0 +1,19 @@
+<div class="header-bar">
+  <h2>My Grades</h2>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Assignment Title</th>
+      <th>Due Date</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assignment of assignments">
+      <td>{{ assignment.title }}</td>
+      <td>{{ assignment.due_date | date:'medium' }}</td>
+      <td><strong>{{ assignment.grade }}</strong></td>
+    </tr>
+  </tbody>
+</table>
